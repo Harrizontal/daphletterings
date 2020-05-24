@@ -5,14 +5,46 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const StoreTemplate = path.resolve("src/templates/details.js")
     const BlogTemplate = path.resolve("src/templates/blogDetails.js")
+    const ProductCategoryTemplate = path.resolve("src/templates/category.js")
+    const ProductSubCategoryTemplate = path.resolve("src/templates/subCategory.js")
     resolve(
       graphql(`
         {
-          allContentfulProduct{
-            edges{
-              node{
+          allContentfulProductCategory {
+            edges {
+              node {
                 id
                 slug
+              }
+            }
+          }
+          allContentfulProductSubCategory {
+            edges {
+              node {
+                id
+                name
+                slug
+                productCategory {
+                  slug
+                  name
+                }
+              }
+            }
+          }
+          allContentfulProduct {
+            edges {
+              node {
+                id
+                slug
+                productSubCategory {
+                  name
+                  slug
+                }
+                productCategory {
+                  id
+                  name
+                  slug
+                }
               }
             }
           }
@@ -30,8 +62,11 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
         result.data.allContentfulProduct.edges.forEach(edge => {
+          let productSlug = edge.node.productCategory.slug;
+          let subProductSlug = edge.node.productSubCategory.slug;
+          let productNameSlug = edge.node.slug;
           createPage({
-            path: edge.node.slug,
+            path: productSlug+"/"+subProductSlug+"/"+productNameSlug,
             component: StoreTemplate,
             context: {
               slug: edge.node.slug,
@@ -40,13 +75,38 @@ exports.createPages = ({ graphql, actions }) => {
         });
         result.data.allContentfulBlogs.edges.forEach(data => {
           createPage({
-            path: data.node.slug,
+            path: "blog/"+data.node.slug,
             component: BlogTemplate,
             context: {
               slug: data.node.slug
             }
           });
         });
+
+        result.data.allContentfulProductCategory.edges.forEach(edge => {
+          let productSlug = edge.node.slug;
+          createPage({
+            path:productSlug,
+            component: ProductCategoryTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        });
+
+        result.data.allContentfulProductSubCategory.edges.forEach(edge => {
+          let productSlug = edge.node.productCategory.slug;
+          let subProductSlug = edge.node.slug;
+          createPage({
+            path:productSlug+"/"+subProductSlug,
+            component: ProductSubCategoryTemplate,
+            context: {
+              productCatSlug: productSlug,
+              productSubCatSlug: subProductSlug
+            }
+          })
+        });
+
         return
       })
     )
