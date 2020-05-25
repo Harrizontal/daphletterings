@@ -1,0 +1,9 @@
+.sub-category-list-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sub-category-wrapper{
+    width: 25%;
+}

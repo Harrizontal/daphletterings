@@ -23,14 +23,15 @@ class IndexPost extends React.Component {
                 <div className="details_inner">
 
                   <h2>
-                    <Link to={`/${items.node.slug}`}>{items.node.name}</Link>
+                  
+                    <Link to={"/"+items.node.productSubCategory.productCategory.slug+"/"+items.node.productSubCategory.slug+"/"+items.node.slug}>{items.node.name}</Link>
                   </h2>
-                  <StarRatingComponent
+                  {/* <StarRatingComponent
                     name="rate1"
                     starCount={5}
                     value={items.node.rating}
-                  />
-                  <p>{items.node.details.childMarkdownRemark.excerpt}</p>
+                  /> */}
+                  {/* <p>{items.node.details.childMarkdownRemark.excerpt}</p>
                   <div className="row">
                     <div className="col-sm-4 align-self-center">
                       <span className="price">${items.node.price}</span>
@@ -48,7 +49,7 @@ class IndexPost extends React.Component {
                         <i className="fas fa-shopping-bag" />Add to Cart
                     </a>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -63,11 +64,11 @@ const IndexPage = data => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `oneshopper`, `react`, `Ecommerce`]} />
     <Banner BannerData={data.data.allContentfulHeaderBanner.edges} />
-    {/* <LatestBlogs data={data.data.allContentfulBlogs} />
+    {/* <LatestBlogs data={data.data.allContentfulBlogs} /> */ }
     <div className="container">
-      <div className="text-center"><h2 className="with-underline">Latest Items</h2></div>
+      <div className="text-center"><h2 className="with-underline">Latest Addition</h2></div>
       <IndexPost data={data}></IndexPost>
-    </div> */}
+    </div>
     <Countdown data={data.data.contentfulDealCountDown} />
   </Layout>
 )
@@ -83,6 +84,13 @@ export const query = graphql`
           name
           slug
           rating
+          productSubCategory {
+            id
+            slug
+            productCategory {
+              slug
+            }
+          }
           image {
             fluid(maxWidth: 1000) {
               base64
@@ -108,6 +116,8 @@ export const query = graphql`
         node {
           title
           subHeading
+          buttonText
+          buttonLink
           image {
             fluid(maxWidth: 1800) {
               base64
@@ -124,6 +134,8 @@ export const query = graphql`
     }
     contentfulDealCountDown {
       title
+      buttonLink
+      buttonText
       featureImage {
         fluid(maxWidth: 1800) {
           base64

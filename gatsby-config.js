@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `OneShopper`,
+        name: `daphnletterings`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
@@ -37,7 +37,8 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: {
         spaceId:`ui2tup12rgw3`,
-        accessToken:`pPdZVIWpmQV1RUwaMsDcohNgWpri_HNumvVbHXqejFE`
+        accessToken:`pPdZVIWpmQV1RUwaMsDcohNgWpri_HNumvVbHXqejFE`,
+        downloadLocal: true,
       }
     },
     {

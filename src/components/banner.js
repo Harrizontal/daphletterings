@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 
 var settings = {
   dots: true,
-  speed: 500,
+  speed: 2000,
   infinite: true,
   autoplay: true,
   autoplaySpeed: 3000,
@@ -29,7 +29,7 @@ export default class Banner extends Component {
                   <div>
                     <span className="sub-title">{items.node.subHeading}</span>
                     <h1>{items.node.title}</h1>
-                    <Link to="/store">Shop Now</Link>
+                    <Link to="/">{items.node.buttonText}</Link>
                   </div>
                 </div>
               </div>

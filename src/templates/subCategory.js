@@ -1,17 +1,15 @@
 import React from "react"
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 // Generate page for categories
+import ProductPost from "../components/productpost"
 
 const SubCategory = data => (
     <Layout>
         <SEO title={"sub category"} keywords={[`gatsby`, `ecommerce`, `react`, `contentFul`, `Snipcart`]} />
         sub category
-        <br></br>
-        {data.data.allContentfulProduct.edges.map(edge =>(
-           <span>{edge.node.name}</span> 
-        ))}
+        <ProductPost data={data}/>
     </Layout>
 )
 
@@ -25,6 +23,23 @@ query ProductListQuery($productCatSlug: String!, $productSubCatSlug: String!) {
           id
           slug
           name
+          productSubCategory {
+            id
+            slug
+            productCategory {
+              slug
+            }
+          }
+          image {
+            fixed(width: 500, height: 500) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+            }
+          }
         }
       }
     }

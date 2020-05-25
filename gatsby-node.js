@@ -89,7 +89,7 @@ exports.createPages = ({ graphql, actions }) => {
             path:productSlug,
             component: ProductCategoryTemplate,
             context: {
-              slug: edge.node.slug
+              productCatSlug: edge.node.slug
             }
           })
         });

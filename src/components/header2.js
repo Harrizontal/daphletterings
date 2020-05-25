@@ -19,20 +19,15 @@ const Header2 = ({ siteTitle, productCategories}) => (
           <div className="col-sm-12 col-md-8 align-self-center">
             <nav>
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/">Home</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/blogs">Blogs</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/store">Store</Link>
-                </li>
+                
                 {productCategories.edges.map(edge => (
                   <li className="nav-item">
                     <Link className="nav-link" to={"/"+edge.node.slug}>{edge.node.name}</Link>
                   </li>
                 ))}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/blogs">Blogs</Link>
+                </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/about">About</Link>
                 </li>
@@ -44,15 +39,8 @@ const Header2 = ({ siteTitle, productCategories}) => (
                 <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
                   <i className="fas fa-cart-plus"></i>
                 </Link>
-                {/* <button class="snipcart-add-item"
-                  data-item-id="starry-night"
-                  data-item-price="79.99"
-                  data-item-url="/paintings/starry-night"
-                  data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
-                  data-item-image="/assets/images/starry-night.jpg"
-                  data-item-name="The Starry Night">
-                  Add to cart
-                </button> */}
+                <span class="snipcart-items-count"></span>
+                <span class="snipcart-total-price"></span>
               </div>
             </nav>
           </div>
