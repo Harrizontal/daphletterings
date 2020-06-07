@@ -5,20 +5,26 @@ import "../css/font-awesome.css"
 import "bootstrap/dist/css/bootstrap.css"
 import "../css/style.css"
 import SEO from "./seo"
-import logo from "../images/oneshopper-logo.png"
+import logo from "../images/harrizontal.png"
 
 const Header2 = ({ siteTitle, productCategories}) => (
     <header className="site-header">
       <SEO>
       </SEO>
       <div className="container">
-        <div className="row">
-          <div className="col-sm-12 col-md-4 align-self-center">
-            <Link className="header-logo" to="/"><img src={logo} alt="logo"></img></Link>
+        <div className="row" style={{justifyContent:"center"}}>
+          <div className="header-cart">
+            <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
+              <i className="fas fa-cart-plus"></i>
+            </Link>
+            <span class="snipcart-items-count"></span>
+            <span class="snipcart-total-price"></span>
           </div>
-          <div className="col-sm-12 col-md-8 align-self-center">
+        </div>
+        <div className="row">
+          <div className="col-12 align-self-center">
             <nav>
-              <ul className="navbar-nav mr-auto">
+              <ul className="navbar-nav">
                 
                 {productCategories.edges.map(edge => (
                   <li className="nav-item">
@@ -35,13 +41,6 @@ const Header2 = ({ siteTitle, productCategories}) => (
                   <Link className="nav-link" to="/contact-us">Contact</Link>
                 </li>
               </ul>
-              <div className="header-cart">
-                <Link className="Header__summary snipcart-summary snipcart-checkout" to="#">
-                  <i className="fas fa-cart-plus"></i>
-                </Link>
-                <span class="snipcart-items-count"></span>
-                <span class="snipcart-total-price"></span>
-              </div>
             </nav>
           </div>
         </div>

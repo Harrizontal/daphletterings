@@ -1,32 +1,49 @@
 import React, { Component } from "react";
 import { Link } from "gatsby"
+import "../css/style2.css"
+import "../css/daphletterings.scss"
 
 class Footer extends Component {
     render() {
         return (
-            <footer className="site-footer">
-                <div className="footer_inner">
-                    <div className="container">
-                        <div className="footer-widget footer-content">
-                            <section id="nav_menu-8" className="widget widget_nav_menu">
-                                <div className="menu-main-container">
-                                    <ul id="menu-main" className="menu">
-                                        <li><Link to="/about">About</Link></li>
-                                        <li><Link to="/blogs">Blogs</Link></li>
-                                        <li><Link to="/contact-us">Contact</Link></li>
-                                        <li><Link to="/copyright">Copyright</Link></li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                        <div className="footer-bottom social-right-menu ">
-                            <div className="site-info">
-                                ©2020 daphletterings. All rights reserved.
-                            </div>
-                        </div>
+            <footer className="footer-wrapper">
+                <div className="footer-inner-wrapper">
+                    <div className="item">
+                        <h3>daphnletterings brand</h3>
+                    </div>
+                    <div className="item">
+                        <h3>Follow</h3>
+                    </div>
+                    <div className="item">
+                        <h3>Handcrafted gifts</h3>
+                        <p>daphletterings is an indepedent brand</p>
                     </div>
                 </div>
             </footer>
+
+            // <footer className="site-footer">
+            //     <div className="footer_inner">
+            //         <div className="container">
+            //             <div className="footer-widget footer-content">
+            //                 <section id="nav_menu-8" className="widget widget_nav_menu">
+            //                     <div className="menu-main-container">
+            //                         <ul id="menu-main" className="menu">
+            //                             <li><Link to="/about">About</Link></li>
+            //                             <li><Link to="/blogs">Blogs</Link></li>
+            //                             <li><Link to="/contact-us">Contact</Link></li>
+            //                             <li><Link to="/copyright">Copyright</Link></li>
+            //                         </ul>
+            //                     </div>
+            //                 </section>
+            //             </div>
+            //             <div className="footer-bottom social-right-menu ">
+            //                 <div className="site-info">
+            //                     ©2020 daphletterings. All rights reserved.
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     </div>
+            // </footer>
         )
     }
 }

@@ -1,20 +1,7 @@
-  <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-  <p align="center">
-    <a href="https://oneshopper.netlify.com/">
-      <img alt="OneShopper" src="https://github.com/Rohitguptab/OneShopper/blob/master/src/images/oneshopper-logo.png" width="200" />
-    </a>
-  </p>
-  <h1 align="center">
-    OneShopper
-  </h1>
-  <img src="https://github.com/rohitguptab/OneShopper/blob/master/docs/screenshot.jpg" />
-  
+
 
   Kick off your Ecommerce Website with OneShopper project you can build you site with this, We have used [Gatsby](https://www.gatsbyjs.org/) + [Contenful](https://www.gatsbyjs.org/packages/gatsby-source-contentful/?=Contenful) and [snipcart](https://www.gatsbyjs.org/packages/gatsby-plugin-snipcart/?=snipcart).
   
-  Live Demo:
-  https://oneshopper.netlify.com
-
 
   ## 🚀 Quick start
 
